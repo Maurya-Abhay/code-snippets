@@ -7,7 +7,7 @@ function WhatsappBtn() {
       target="_blank"
       rel="noreferrer"
       aria-label="Chat on WhatsApp"
-      className="fixed bottom-5 right-4 z-50 flex h-14 w-14 items-center justify-center rounded-xl bg-white text-4xl text-green-500 shadow-lg md:bottom-8 md:right-6 md:h-20 md:w-20 md:text-5xl"
+      className="fixed bottom-5 right-4 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-green-500 text-3xl text-white shadow-lg transition hover:scale-110 md:bottom-7 md:right-7"
     >
       <FaWhatsapp />
     </a>

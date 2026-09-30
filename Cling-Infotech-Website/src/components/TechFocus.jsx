@@ -1,50 +1,63 @@
-import { FaPlay } from 'react-icons/fa'
-import logo from '../assets/logo.png'
+import { FaCube, FaFilm, FaEye, FaPlay } from 'react-icons/fa'
+import Reveal from './Reveal'
 
-function PlayButton() {
-  return (
-    <span className="absolute left-1/2 top-1/2 flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-black/60 text-white">
-      <FaPlay className="ml-1" />
-    </span>
-  )
-}
+const items = [
+  {
+    tag: '3D Animation',
+    title: 'Logo animation',
+    text: 'Animated logo reveals that make your brand stand out in the first few seconds.',
+    icon: <FaCube />,
+    bg: 'from-brand to-rose-900',
+  },
+  {
+    tag: '3D Animation',
+    title: 'Advertisement video',
+    text: 'Product ad videos in 3D for launches, social media and exhibitions.',
+    icon: <FaFilm />,
+    bg: 'from-primary to-indigo-900',
+  },
+  {
+    tag: 'AI',
+    title: 'Surveillance model',
+    text: 'An AI model that watches video and identifies suspicious activity automatically.',
+    icon: <FaEye />,
+    bg: 'from-emerald-600 to-slate-800',
+  },
+]
 
 function TechFocus() {
   return (
-    <section id="tech" className="bg-blush px-5 py-14">
-      <div className="text-center">
-        <h2 className="text-3xl font-bold text-brand md:text-4xl">Current Tech Focus</h2>
-        <div className="mx-auto mt-3 h-1 w-24 rounded bg-gradient-to-r from-teal-400 to-gray-900" />
-      </div>
+    <section id="tech" className="bg-ink py-20 text-white lg:py-28">
+      <div className="mx-auto max-w-7xl px-5 lg:px-8">
+        <Reveal className="max-w-2xl">
+          <p className="font-semibold uppercase tracking-wide text-brand">Current tech focus</p>
+          <h2 className="mt-3 text-3xl font-extrabold md:text-4xl lg:text-5xl">
+            What we are building right now
+          </h2>
+        </Reveal>
 
-      <div className="mx-auto mt-12 grid max-w-4xl gap-12 md:grid-cols-2">
-        <div className="text-center">
-          <div className="relative flex h-56 items-center justify-center overflow-hidden bg-cyan-100">
-            <div className="rounded-lg bg-white/70 px-6 py-4 shadow-inner">
-              <img src={logo} alt="Cling logo" className="h-24" />
-            </div>
-            <PlayButton />
-          </div>
-          <h3 className="mt-4 text-xl font-semibold">3D Animation</h3>
-          <p className="mt-1">Cling Logo animation</p>
-        </div>
-
-        <div className="text-center">
-          <div className="relative flex h-56 items-center justify-center overflow-hidden bg-gray-800">
-            <p className="px-8 text-lg text-gray-400">Samsung Galaxy at 80% in VR Hall</p>
-            <PlayButton />
-          </div>
-          <h3 className="mt-4 text-xl font-semibold">3D Animation</h3>
-          <p className="mt-1">Advertisement video</p>
-        </div>
-
-        <div className="text-center md:col-span-2 md:mx-auto md:w-1/2">
-          <div className="relative flex h-56 items-center justify-center overflow-hidden bg-stone-500">
-            <div className="h-32 w-44 rounded bg-stone-700/70" />
-            <PlayButton />
-          </div>
-          <h3 className="mt-4 text-xl font-semibold">AI</h3>
-          <p className="mt-1">The Surveillance Model identifies suspicious activity in the video</p>
+        <div className="mt-12 grid gap-6 md:grid-cols-3">
+          {items.map((item, i) => (
+            <Reveal key={item.title} delay={i * 120}>
+              <div className="group h-full overflow-hidden rounded-2xl bg-white/5 ring-1 ring-white/10 transition hover:ring-white/30">
+                <div
+                  className={`relative flex h-48 items-center justify-center bg-gradient-to-br ${item.bg}`}
+                >
+                  <span className="text-6xl text-white/30">{item.icon}</span>
+                  <span className="absolute flex h-14 w-14 items-center justify-center rounded-full bg-white/90 text-ink transition group-hover:scale-110">
+                    <FaPlay className="ml-1" />
+                  </span>
+                </div>
+                <div className="p-6">
+                  <span className="text-xs font-semibold uppercase tracking-wider text-brand">
+                    {item.tag}
+                  </span>
+                  <h3 className="mt-2 text-xl font-bold">{item.title}</h3>
+                  <p className="mt-2 leading-7 text-gray-400">{item.text}</p>
+                </div>
+              </div>
+            </Reveal>
+          ))}
         </div>
       </div>
     </section>

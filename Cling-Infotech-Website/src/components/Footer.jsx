@@ -1,92 +1,78 @@
-import { FaInstagram, FaLinkedinIn, FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from 'react-icons/fa'
+import { FaInstagram, FaLinkedinIn } from 'react-icons/fa'
 import logo from '../assets/logo.png'
 
 const quickLinks = [
-  'Home', '3D Videos', 'AI/ML', 'Services', 'Clients', 'Portfolio', 'Achievements',
-  'Team', 'Career', 'Sitemap', 'Privacy Policy', 'Cancellation & Refund Policy', 'Terms and Conditions',
+  { name: 'Home', href: '#home' },
+  { name: 'Services', href: '#services' },
+  { name: 'About', href: '#about' },
+  { name: 'Clients', href: '#clients' },
+  { name: 'Team', href: '#team' },
+  { name: 'Contact', href: '#contact' },
 ]
 
 const services = [
-  'App Development', 'Website Designing', 'Web Design', 'Digital Marketing',
-  'Social Media Marketing', 'IT Team for Entrepreneurship', 'Career Counselling', 'ERPs',
+  'App Development',
+  'Website Design',
+  'ERP Solutions',
+  'Digital Marketing',
+  'IT Team for Startups',
+  'Career Counselling',
 ]
 
 function Footer() {
   return (
-    <footer className="bg-gradient-to-b from-white to-red-100">
-      <div className="flex items-center justify-between border-b border-gray-200 bg-white px-5 py-3 md:px-12">
-        <img src={logo} alt="Cling" className="h-14" />
-        <div className="flex gap-3 text-white">
-          <a href="#" aria-label="Instagram" className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-900 text-xl">
-            <FaInstagram />
-          </a>
-          <a href="#" aria-label="LinkedIn" className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-900 text-xl">
-            <FaLinkedinIn />
-          </a>
-        </div>
-      </div>
-
-      <div className="mx-auto grid max-w-7xl gap-10 px-5 py-10 md:px-12 lg:grid-cols-[2fr_1fr_1fr]">
+    <footer className="bg-ink text-gray-400">
+      <div className="mx-auto grid max-w-7xl gap-10 px-5 py-14 md:grid-cols-2 lg:grid-cols-4 lg:px-8">
         <div>
-          <h3 className="text-2xl font-semibold">Cling Info Tech Works Private Limited</h3>
-          <h4 className="mt-6 text-2xl">Address</h4>
-
-          <div className="mt-4 space-y-4 leading-6">
-            <div>
-              <h5 className="text-xl">Head Office Noida</h5>
-              <p>130, 131, 132, 2nd Floor, Wave Galleria, Wave City, NH-24, Noida, Uttar Pradesh - 201015</p>
-            </div>
-            <div>
-              <h5 className="text-xl">Pune Office Address</h5>
-              <p>2nd Floor, Raj Sqaure, Pashan - Sus Rd, near Abhinav kala college, opposite Reliance Fresh, Sutarwadi, Pashan, Pune, Maharashtra - 411021</p>
-            </div>
-            <div>
-              <h5 className="text-xl">Moradabad Office Address</h5>
-              <p>2/652, Avas Vikas, Buddhi Vihar Moradabad, UP - 244001</p>
-            </div>
+          <div className="inline-block rounded-lg bg-white px-3 py-1">
+            <img src={logo} alt="Cling" className="h-11" />
           </div>
-
-          <div className="mt-6 space-y-4">
-            <p className="flex items-center gap-3">
-              <span className="flex h-12 w-12 items-center justify-center rounded-full bg-brand text-xl text-white"><FaMapMarkerAlt /></span>
-              Maharashtra, Uttar Pradesh
-            </p>
-            <p className="flex items-center gap-3">
-              <span className="flex h-12 w-12 items-center justify-center rounded-full bg-brand text-xl text-white"><FaPhoneAlt /></span>
-              +91 8264469132
-            </p>
-            <p className="flex items-center gap-3">
-              <span className="flex h-12 w-12 items-center justify-center rounded-full bg-brand text-xl text-white"><FaEnvelope /></span>
-              info@clinginfotech.com
-            </p>
+          <p className="mt-5 leading-7">
+            Cling Info Tech Works Private Limited. End-to-end IT solutions for all your business
+            needs.
+          </p>
+          <div className="mt-5 flex gap-3 text-white">
+            <a href="#" aria-label="Instagram" className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 hover:bg-brand">
+              <FaInstagram />
+            </a>
+            <a href="#" aria-label="LinkedIn" className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 hover:bg-brand">
+              <FaLinkedinIn />
+            </a>
           </div>
         </div>
 
         <div>
-          <h3 className="text-2xl font-semibold">Quick Links</h3>
-          <ul className="mt-6 space-y-3">
+          <h4 className="mb-5 text-lg font-bold text-white">Quick Links</h4>
+          <ul className="space-y-3">
             {quickLinks.map((l) => (
-              <li key={l}>
-                <a href="#" className="hover:text-brand">{l}</a>
+              <li key={l.name}>
+                <a href={l.href} className="hover:text-white">{l.name}</a>
               </li>
             ))}
           </ul>
         </div>
 
         <div>
-          <h3 className="text-2xl font-semibold">Services</h3>
-          <ul className="mt-6 space-y-4">
+          <h4 className="mb-5 text-lg font-bold text-white">Services</h4>
+          <ul className="space-y-3">
             {services.map((s) => (
               <li key={s}>
-                <a href="#services" className="hover:text-brand">{s}</a>
+                <a href="#services" className="hover:text-white">{s}</a>
               </li>
             ))}
           </ul>
         </div>
+
+        <div>
+          <h4 className="mb-5 text-lg font-bold text-white">Get in touch</h4>
+          <p>+91 8264469132</p>
+          <p className="mt-2">info@clinginfotech.com</p>
+          <p className="mt-4 leading-7">Noida · Pune · Moradabad</p>
+        </div>
       </div>
 
-      <p className="border-t border-gray-300 py-4 text-center text-lg">
-        Copyright © Cling Infotech All Rights Reserved
+      <p className="border-t border-white/10 py-5 text-center text-sm">
+        Copyright © Cling Infotech. All Rights Reserved.
       </p>
     </footer>
   )

@@ -2,10 +2,10 @@ import { useEffect, useRef, useState } from 'react'
 import { FaCode, FaUsers, FaRegLightbulb, FaCoffee } from 'react-icons/fa'
 
 const stats = [
-  { icon: <FaCode />, value: 32387122, suffix: '', label: 'Number of lines of code' },
+  { icon: <FaCode />, value: 32387122, suffix: '', label: 'Lines of code written' },
   { icon: <FaUsers />, value: 350, suffix: '+', label: 'Happy clients' },
-  { icon: <FaRegLightbulb />, value: 390, suffix: '+', label: 'Projects Completed' },
-  { icon: <FaCoffee />, value: 1500, suffix: '+', label: 'Coffee With Clients' },
+  { icon: <FaRegLightbulb />, value: 390, suffix: '+', label: 'Projects completed' },
+  { icon: <FaCoffee />, value: 1500, suffix: '+', label: 'Coffees with clients' },
 ]
 
 function Counter({ end, suffix, start }) {
@@ -28,7 +28,7 @@ function Counter({ end, suffix, start }) {
 
   return (
     <span>
-      {count}
+      {count.toLocaleString('en-IN')}
       {suffix}
     </span>
   )
@@ -38,7 +38,7 @@ function Stats() {
   const ref = useRef(null)
   const [visible, setVisible] = useState(false)
 
-  // start counting when the card comes into view
+  // start counting once the strip is on screen
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -54,21 +54,23 @@ function Stats() {
   }, [])
 
   return (
-    <div className="relative z-10 -mt-6 px-4 md:-mt-[30px]">
+    <div className="relative z-10 -mt-14 px-5 lg:px-8">
       <div
         ref={ref}
-        className="mx-auto flex w-full max-w-[808px] flex-wrap items-start justify-center rounded-[6px] bg-white p-4 text-center shadow-[0_4px_8px_rgba(0,0,0,0.1)] md:min-h-[138px] md:flex-nowrap md:p-5"
+        className="mx-auto grid max-w-6xl grid-cols-2 gap-y-8 rounded-3xl bg-ink px-4 py-9 text-white shadow-2xl md:grid-cols-4"
       >
-        {stats.map((s) => (
+        {stats.map((s, i) => (
           <div
             key={s.label}
-            className="my-2 flex min-w-0 basis-[calc(50%_-_16px)] flex-col items-center gap-1 px-1 md:mx-[10px] md:my-[10px] md:basis-[calc(25%_-_20px)]"
+            className={`flex flex-col items-center px-2 text-center ${
+              i > 0 ? 'md:border-l md:border-white/10' : ''
+            }`}
           >
-            <div className="text-[40px] leading-none text-primary md:text-[30px]">{s.icon}</div>
-            <p className="mt-[10px] w-full break-words text-[14px] font-semibold leading-5 tabular-nums md:text-[15px]">
+            <div className="mb-3 text-2xl text-brand">{s.icon}</div>
+            <p className="text-2xl font-extrabold md:text-3xl">
               <Counter end={s.value} suffix={s.suffix} start={visible} />
             </p>
-            <p className="mt-[2px] w-full text-[13px] leading-5 md:text-[14px]">{s.label}</p>
+            <p className="mt-1 text-sm text-gray-400">{s.label}</p>
           </div>
         ))}
       </div>

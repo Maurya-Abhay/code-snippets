@@ -1,6 +1,6 @@
-# Cling Infotech - Home Page
+# Cling Infotech - Home Page Redesign
 
-A responsive clone of the Cling Info Tech home page, built as a frontend assignment. I recreated the full landing page, from the navbar and hero section to the contact form and footer, using React and Tailwind CSS.
+My redesign of the Cling Info Tech home page, made as an internship assignment. I kept the brand colours (red and blue) and the same content, but gave the page a cleaner, more modern look and a shorter flow so it is easier to scan.
 
 ## Tech Stack
 
@@ -9,14 +9,17 @@ A responsive clone of the Cling Info Tech home page, built as a frontend assignm
 - Tailwind CSS v4
 - React Icons
 
-## Features
+## What I changed
 
-- Fully responsive layout (mobile, tablet and desktop)
-- Navbar with dropdown menus and a slide-in mobile menu
-- Animated stats counter that starts when it scrolls into view
-- Auto-sliding testimonials with dot navigation
-- Contact form with basic validation
-- Floating WhatsApp button
+- New hero with a clear headline and call-to-action buttons
+- Dark stats strip with a count-up animation
+- Six service cards (the old page only showed three) with hover effects
+- Vision and Mission as tabs, and the company journey as a timeline
+- Client names in a scrolling marquee, plus a compact "global presence" section
+- Testimonial slider with arrows, dots and auto-play
+- Contact section with office details next to the form, with basic validation
+- Sticky blurred navbar, scroll animations and a floating WhatsApp button
+- Fully responsive for mobile, tablet and desktop
 
 ## Getting Started
 
@@ -50,5 +53,5 @@ src/
 ## Notes
 
 - Client names, team members and testimonials are placeholder content.
-- Flags and profile photos are loaded from the internet, so you need a connection to see them.
+- Flags and profile photos load from the internet, so you need a connection to see them.
 - This is only the frontend. The contact form does not send data anywhere yet.

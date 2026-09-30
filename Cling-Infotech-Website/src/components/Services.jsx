@@ -1,45 +1,67 @@
-import { FaMobileAlt, FaLaptopCode, FaCogs } from 'react-icons/fa'
+import { FaMobileAlt, FaLaptopCode, FaCogs, FaBullhorn, FaUsers, FaRobot } from 'react-icons/fa'
+import { FiArrowRight } from 'react-icons/fi'
+import Reveal from './Reveal'
 
 const services = [
   {
     title: 'App Development',
     icon: <FaMobileAlt />,
-    text: 'Need custom app development services? We can help you to take advantage of the rapidly growing segment of mobile application development',
+    text: 'Custom mobile apps for Android and iOS, built to take advantage of the fast growing app market.',
   },
   {
-    title: 'Web Design',
+    title: 'Website Design',
     icon: <FaLaptopCode />,
-    text: "Don't let your website be just another URL on the web! We never use a pre-designed template for your website. All design layouts are developed from ground up, meeting the exacting standards you demand",
+    text: 'No pre-made templates. Every layout is designed from scratch to match your brand and goals.',
   },
   {
-    title: 'ERPs',
+    title: 'ERP Solutions',
     icon: <FaCogs />,
-    text: 'We help you to manage your business activities by integrating your back and front office applications',
+    text: 'Manage your whole business in one place by connecting your back office and front office tools.',
+  },
+  {
+    title: 'Digital Marketing',
+    icon: <FaBullhorn />,
+    text: 'SEO, social media and campaigns that bring real customers to your website.',
+  },
+  {
+    title: 'IT Team for Startups',
+    icon: <FaUsers />,
+    text: 'Got an idea but no tech team? Get developers and designers who work like part of your company.',
+  },
+  {
+    title: '3D & AI',
+    icon: <FaRobot />,
+    text: '3D animation, ad videos and AI models like our video surveillance system.',
   },
 ]
 
 function Services() {
   return (
-    <section id="services" className="px-5 py-14">
-      <div className="text-center">
-        <h2 className="text-3xl font-bold text-brand md:text-4xl">Services</h2>
-        <div className="mx-auto mt-3 h-1 w-24 rounded bg-gradient-to-r from-teal-400 to-gray-900" />
-      </div>
+    <section id="services" className="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28">
+      <Reveal className="max-w-2xl">
+        <p className="font-semibold uppercase tracking-wide text-brand">What we do</p>
+        <h2 className="mt-3 text-3xl font-extrabold text-ink md:text-4xl lg:text-5xl">
+          Everything you need to get online and grow
+        </h2>
+      </Reveal>
 
-      <div className="mx-auto mt-12 grid max-w-6xl gap-10 md:grid-cols-2 md:gap-x-24 md:gap-y-14">
+      <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {services.map((s, i) => (
-          <div
-            key={s.title}
-            className={`flex items-start gap-5 ${i === 2 ? 'md:col-span-2 md:mx-auto md:max-w-xl' : ''}`}
-          >
-            <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-blue-50 text-3xl text-primary shadow md:h-32 md:w-32 md:text-5xl">
-              {s.icon}
+          <Reveal key={s.title} delay={(i % 3) * 100}>
+            <div className="group h-full rounded-2xl border border-gray-200 bg-white p-7 transition duration-300 hover:-translate-y-1.5 hover:border-transparent hover:shadow-xl">
+              <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-brand/10 text-2xl text-brand transition group-hover:bg-brand group-hover:text-white">
+                {s.icon}
+              </div>
+              <h3 className="mt-6 text-xl font-bold text-ink">{s.title}</h3>
+              <p className="mt-3 leading-7 text-gray-600">{s.text}</p>
+              <a
+                href="#contact"
+                className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-primary"
+              >
+                Talk to us <FiArrowRight className="transition group-hover:translate-x-1" />
+              </a>
             </div>
-            <div>
-              <h3 className="text-2xl font-semibold text-primary md:text-3xl">{s.title}</h3>
-              <p className="mt-2 leading-7 md:text-lg">{s.text}</p>
-            </div>
-          </div>
+          </Reveal>
         ))}
       </div>
     </section>
